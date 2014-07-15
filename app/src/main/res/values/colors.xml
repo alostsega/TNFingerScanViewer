@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="monday">#ffeb3b</color>
+    <color name="tuesday">#e91e63</color>
+    <color name="wednesday">#8bc34a</color>
+    <color name="thursday">#ff9800</color>
+    <color name="friday">#03a9f4</color>
+    <color name="saturday">#9c27b0</color>
+    <color name="sunday">#e51c23</color>
+    <color name="dark_gray">#454545</color>
+</resources>
