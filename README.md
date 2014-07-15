@@ -1,4 +1,4 @@
 TNFingerScanViewer
 ==================
 
-Application view time attendant
+Application view time attendant on Android
