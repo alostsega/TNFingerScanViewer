@@ -104,7 +104,7 @@ public class MainActivity extends Activity {
                 }
 
                 @Override
-                public void onPageFinished(WebView view, String url) {
+                public void onPageFinished(final WebView view,final String url) {
                     super.onPageFinished(view, url);
 
                     if(url.equals("https://id.thinknet.co.th/user/loginForm?url=http://my.thinknet.co.th/auth")){
@@ -139,12 +139,13 @@ public class MainActivity extends Activity {
                                     webView.loadUrl("javascript:" + "(function(){" +
                                             "selectApplication('Timeattendant');" +
                                             "})()");
-                                    delay(5000);
+                                    delay(3000);
 
                                     //For Android 4.1.2
                                     if(19 > android.os.Build.VERSION.SDK_INT){
-                                        webView.loadUrl("http://hris.thinknet.co.th/employee/attendant.php");
-                                        delay(5000);
+                                        //webView.loadUrl("http://hris.thinknet.co.th/employee/attendant.php");
+                                        onPageFinished(view,url);
+
                                     }
                                 }
                             });
@@ -157,8 +158,9 @@ public class MainActivity extends Activity {
                                 webView.post(new Runnable() {
                                     @Override
                                     public void run() {
+
                                         webView.loadUrl("http://hris.thinknet.co.th/employee/attendant.php");
-                                        delay(5000);
+                                        delay(2000);
                                         //
                                     }
                                 });
@@ -187,7 +189,7 @@ public class MainActivity extends Activity {
                                             "document.getElementById('amount').value = '"+amount+"';" +
                                             "document.getElementsByName('frm')[0].submit();" +
                                             "})()");
-                                    delay(5000);
+                                    delay(3000);
 
                                     //For Android 4.1.2
                                     if(19 > android.os.Build.VERSION.SDK_INT){
@@ -293,7 +295,8 @@ public class MainActivity extends Activity {
         }
 
         public void delay(final long sec){
-            Thread thread = new Thread(new Runnable() {
+            Log.d("Test","delay");
+            /*Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -303,7 +306,12 @@ public class MainActivity extends Activity {
                     }
                 }
             });
-            thread.start();
+            thread.start();*/
+            try {
+                Thread.sleep(sec);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         public void resetVariable() {
